@@ -21,6 +21,7 @@ while game_is_on:
     answer_state = answer_state.title()
     data = pandas.read_csv('50_states.csv')
     states_data = data.get('state').to_numpy()
+
     if len(states_guessed) == 50:
         game_is_on = False
 
@@ -32,6 +33,7 @@ while game_is_on:
         states_guessed.append(answer_state)
         state_row = data[data.state == answer_state]
         written_state.write(f'{answer_state}', align='center', font=('Courier', 11, 'bold'))
+
 states_data = states_data.tolist()
 states_to_learn = list(set(states_data) - set(states_guessed))
 states_to_learn_dic = {'states': states_to_learn}
