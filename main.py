@@ -32,6 +32,9 @@ while game_is_on:
         score += 1
         states_guessed.append(answer_state)
         state_row = data[data.state == answer_state]
+        x_state = state_row["x"].to_list()[0]
+        y_state = state_row["y"].to_list()[0]
+        written_state.goto(x_state, y_state)
         written_state.write(f'{answer_state}', align='center', font=('Courier', 11, 'bold'))
 
 states_data = states_data.tolist()
